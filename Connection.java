@@ -22,7 +22,7 @@ public class Connection extends Thread {
             String data = in.readUTF();
             out.writeUTF(data);
         } catch (EOFException e) {
-            System.out.printnl("EOF: " + e.getMessage());
+            System.out.println("EOF: " + e.getMessage());
         } catch (IOException e) {
             System.out.println("IO: " + e.getMessage());
         } finally {

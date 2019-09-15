@@ -6,9 +6,9 @@ public class TCPServer {
         // args supply message and hostname of destination
         try {
             int serverPort = 7896;
-            ServerSocket listneSocket = new ServerSocket(serverPort);
+            ServerSocket listenSocket = new ServerSocket(serverPort);
             while(true){
-                Socket clientSocket = listneSocket.accept();
+                Socket clientSocket = listenSocket.accept();
                 Connection c = new Connection(clientSocket);
             }
         } catch (IOException e) {
