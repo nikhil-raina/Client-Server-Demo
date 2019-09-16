@@ -5,8 +5,9 @@ import java.util.ArrayList;
 
 public class TCPServer {
     public static void main(String[] args) {
-        // args supply message and hostname of destination
+        // TODO: args supply message and hostname of destination
         try {
+            // Need to receieve acknowledgement from the client.
             int serverPort = 7896;
             ServerSocket listenSocket = new ServerSocket(serverPort);
             Socket clientSocket = listenSocket.accept();
