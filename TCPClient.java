@@ -1,4 +1,6 @@
 import java.net.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.*;
 
 public class TCPClient {
@@ -11,14 +13,21 @@ public class TCPClient {
 //            DataInputStream in = new DataInputStream(socket.getInputStream());
 //            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
             int i = 0;
-            while (i < 100) {
-                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                out.println(i);
-//            String data = in.readUTF();
-                System.out.println("Received: " + in.readLine());
-                i++;
-            }
+            List<String> names = new ArrayList<>();
+            names.add("e");
+            names.add("shav");
+            names.add("nik");
+            
+            ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+            oos.writeObject(names);
+//             while (i < 100) {
+//                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+//                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+//                 out.println(i);
+// //            String data = in.readUTF();
+//                 System.out.println("Received: " + in.readLine());
+//                 i++;
+//             }
         } catch (UnknownHostException e) {
             System.out.println("Sock: " + e.getMessage());
         } catch (EOFException e) {
