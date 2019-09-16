@@ -7,12 +7,18 @@ public class TCPClient {
         Socket socket = null;
         try {
             int serverPort = 7896;
-            socket = new Socket(args[1], serverPort);
-            DataInputStream in = new DataInputStream(socket.getInputStream());
-            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            out.writeUTF(args[0]);
-            String data = in.readUTF();
-            System.out.println("Received: " + data);
+            socket = new Socket(args[0], serverPort);
+//            DataInputStream in = new DataInputStream(socket.getInputStream());
+//            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+            int i = 0;
+            while (i < 100) {
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                out.println(i);
+//            String data = in.readUTF();
+                System.out.println("Received: " + in.readLine());
+                i++;
+            }
         } catch (UnknownHostException e) {
             System.out.println("Sock: " + e.getMessage());
         } catch (EOFException e) {
