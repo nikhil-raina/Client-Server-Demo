@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TCPServer",
+            "request": "launch",
+            "mainClass": "TCPServer",
+            "args":"localhost"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TCPClient",
+            "request": "launch",
+            "mainClass": "TCPClient",
+            "args":"localhost" 
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - demo",
+            "request": "launch",
+            "mainClass": "demo"
+        }
+    ]
+}
